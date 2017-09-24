@@ -1,0 +1,33 @@
+﻿<controls:MetroWindow x:Class="ostViewIn3D.Scroller"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      SizeToContent="WidthAndHeight" ShowTitleBar="False"
+                      ShowMaxRestoreButton="False" ShowMinButton="False"
+                      SaveWindowPosition="True" WindowStartupLocation="CenterScreen"
+                      Topmost="True" MouseLeftButtonDown="Scroller_OnMouseLeftButtonDown"
+                      Loaded="Scroller_OnLoaded"
+                      >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ModPlusAPI;component/Windows/WinResources/Styles.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" FontSize="16" Margin="0,0,20,0" Text="3D ПОДРЕЗКА"></TextBlock>
+        <Slider Grid.Row="1" Minimum="1" Maximum="50" SmallChange="1" Width="250" Margin="0,10,0,0"
+                IsSnapToTickEnabled="True" Interval="1" Name="tbSection"></Slider>
+    </Grid>
+</controls:MetroWindow>
+
