@@ -24,11 +24,6 @@ namespace ostViewIn3D
             if (ScrollerWin != null)
                 return Result.Cancelled;
             
-            //if (appRevit.ActiveUIDocument.Selection.GetElementIds().Count == 0)
-            //{
-            //    MessageBox.Show("Нужно выбрать элемент", MessageBoxIcon.Alert);
-            //    return Result.Cancelled;
-            //}
             if (!SetSelection(appRevit)) return Result.Cancelled;
             SectionBox sectionBox = new SectionBox();
             sectionBox.SetSectionBox(appRevit,0);
@@ -47,10 +42,23 @@ namespace ostViewIn3D
         private bool SetSelection(UIApplication uiApplication)
         {
             var selection = uiApplication.ActiveUIDocument.Selection;
-            if (selection.GetElementIds().Any()) return true;
+            var doc = uiApplication.ActiveUIDocument.Document;
+            var selectedIds = selection.GetElementIds();
+            if (selectedIds.Any())
+            {
+                var selectedExceptSectionBox = new List<Element>();
+                foreach (ElementId id in selectedIds)
+                {
+                    var element = doc.GetElement(id);
+                    if(element.Category.Id.IntegerValue != (int)BuiltInCategory.OST_SectionBox)
+                        selectedExceptSectionBox.Add(element);
+                }
+                if(selectedExceptSectionBox.Any())
+                    return true;
+            }
             try
             {
-                var selSet = selection.PickObjects(ObjectType.Element, "Выберите элементы для 3D подрезки").Select(r=>r.ElementId).ToList();
+                var selSet = selection.PickObjects(ObjectType.Element, new SelFilter(), "Выберите элементы для 3D подрезки").Select(r=>r.ElementId).ToList();
                 selection.SetElementIds(selSet);
                 return selSet.Any();
             }
@@ -58,6 +66,20 @@ namespace ostViewIn3D
             {
                 return false;
             }
+        }
+    }
+
+    internal class SelFilter : ISelectionFilter
+    {
+        public bool AllowElement(Element elem)
+        {
+            if (elem.Category.Id.IntegerValue == (int) BuiltInCategory.OST_SectionBox) return false;
+            return true;
+        }
+
+        public bool AllowReference(Reference reference, XYZ position)
+        {
+            return true;
         }
     }
 }

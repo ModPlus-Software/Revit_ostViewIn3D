@@ -63,7 +63,8 @@ namespace ostViewIn3D
                 }
             }
             app.ActiveUIDocument.ActiveView = view3D;
-            List<Element> elements = app.ActiveUIDocument.Selection.GetElementIds().Select(id => doc.GetElement(id)).ToList();
+            List<Element> elements = app.ActiveUIDocument.Selection.GetElementIds()
+                .Select(id => doc.GetElement(id)).Where(el => el.Category.Id.IntegerValue != (int)BuiltInCategory.OST_SectionBox).ToList();
 
             var points = GetBoundingBoxXYZ(elements, doc);
             BoundingBoxXYZ box = new BoundingBoxXYZ();
