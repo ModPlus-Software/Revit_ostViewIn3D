@@ -1,7 +1,5 @@
 ﻿using System.Windows;
-using System.Windows.Input;
 using Autodesk.Revit.UI;
-using ModPlusAPI.Windows.Helpers;
 
 namespace ostViewIn3D
 {
@@ -11,11 +9,12 @@ namespace ostViewIn3D
         public bool isSectionView  = true;
         public int offset = 0;
         private readonly UIApplication appRevit;
+        private const string LangItem = "ostViewIn3D";
 
         public Scroller(UIApplication appRevit, ExternalEvent exEvent)
         {
             InitializeComponent();
-            this.OnWindowStartUp();
+            Title = ModPlusAPI.Language.GetItem(LangItem, "h1");
             m_ExEvent = exEvent;
             this.appRevit = appRevit;
         }
@@ -33,11 +32,6 @@ namespace ostViewIn3D
         private void Scroller_OnLoaded(object sender, RoutedEventArgs e)
         {
             tbSection.ValueChanged += TbSection_OnValueChanged;
-        }
-
-        private void Scroller_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
         }
     }
 }

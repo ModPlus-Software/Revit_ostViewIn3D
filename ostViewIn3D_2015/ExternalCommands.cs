@@ -6,7 +6,6 @@ using Autodesk.Revit.Exceptions;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using ModPlusAPI;
-using ModPlusAPI.Windows;
 
 namespace ostViewIn3D
 {
@@ -14,6 +13,7 @@ namespace ostViewIn3D
     [Regeneration(RegenerationOption.Manual)]
     public class ExternalCommands : IExternalCommand
     {
+        private const string LangItem = "ostViewIn3D";
         public static Scroller ScrollerWin = null;
 
         public Result Execute(ExternalCommandData commandData, ref string message, Autodesk.Revit.DB.ElementSet elements)
@@ -58,7 +58,8 @@ namespace ostViewIn3D
             }
             try
             {
-                var selSet = selection.PickObjects(ObjectType.Element, new SelFilter(), "Выберите элементы для 3D подрезки").Select(r=>r.ElementId).ToList();
+                var selSet = selection.PickObjects(ObjectType.Element, new SelFilter(), 
+                    Language.GetItem(LangItem, "msg1")).Select(r=>r.ElementId).ToList();
                 selection.SetElementIds(selSet);
                 return selSet.Any();
             }
