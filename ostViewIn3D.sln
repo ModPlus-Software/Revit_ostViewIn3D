@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ostViewIn3D_2015", "ostViewIn3D_2015\ostViewIn3D_2015.csproj", "{8355A9E8-BE41-4C14-A025-5905F87A13B9}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ostViewIn3D_2017", "ostViewIn3D_2017\ostViewIn3D_2017.csproj", "{B5B1A2F3-20AF-4A4B-884D-ADC18A5BC2AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ostViewIn3D_2018", "ostViewIn3D_2018\ostViewIn3D_2018.csproj", "{439251EB-0C92-48D0-8624-6C2B36479DB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ostViewIn3D_2019", "ostViewIn3D_2019\ostViewIn3D_2019.csproj", "{18C9C1DE-7BC5-4757-82A5-27C42D74B191}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{439251EB-0C92-48D0-8624-6C2B36479DB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{439251EB-0C92-48D0-8624-6C2B36479DB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{439251EB-0C92-48D0-8624-6C2B36479DB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18C9C1DE-7BC5-4757-82A5-27C42D74B191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18C9C1DE-7BC5-4757-82A5-27C42D74B191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18C9C1DE-7BC5-4757-82A5-27C42D74B191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18C9C1DE-7BC5-4757-82A5-27C42D74B191}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
