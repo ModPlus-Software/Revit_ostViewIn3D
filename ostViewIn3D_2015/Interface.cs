@@ -17,7 +17,7 @@ namespace ostViewIn3D
         public string Author => "Останин Антон";
         public string Price => "0";
         public bool CanAddToRibbon => true;
-        public string FullDescription => "Имеется возможность динамического изменени размеров видового куба равномерно во все стороны относительно выбранных элементов";
+        public string FullDescription => "Имеется возможность динамического изменения размеров видового куба равномерно во все стороны относительно выбранных элементов";
         public string ToolTipHelpImage => "ostViewIn3D.png";
         public List<string> SubFunctionsNames => new List<string>();
         public List<string> SubFunctionsLames => new List<string>();

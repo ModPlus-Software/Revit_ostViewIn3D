@@ -58,7 +58,7 @@ namespace ostViewIn3D
                             view3D = View3D.CreateIsometric(doc, threeD.Id);
                         }
                     }
-                    view3D.ViewName = "{3D - " + userName + "}";
+                    view3D.ViewName = "3D - " + userName;
                     tr.Commit();
                 }
             }
