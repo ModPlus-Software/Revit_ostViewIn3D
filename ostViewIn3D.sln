@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ostViewIn3D_2018", "ostView
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ostViewIn3D_2019", "ostViewIn3D_2019\ostViewIn3D_2019.csproj", "{18C9C1DE-7BC5-4757-82A5-27C42D74B191}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ostViewIn3D_2020", "ostViewIn3D_2020\ostViewIn3D_2020.csproj", "{303CFF0D-DE7E-4627-AA53-BC749FD8AABD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{18C9C1DE-7BC5-4757-82A5-27C42D74B191}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18C9C1DE-7BC5-4757-82A5-27C42D74B191}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18C9C1DE-7BC5-4757-82A5-27C42D74B191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{303CFF0D-DE7E-4627-AA53-BC749FD8AABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{303CFF0D-DE7E-4627-AA53-BC749FD8AABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{303CFF0D-DE7E-4627-AA53-BC749FD8AABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{303CFF0D-DE7E-4627-AA53-BC749FD8AABD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

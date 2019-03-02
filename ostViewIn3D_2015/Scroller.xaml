@@ -12,7 +12,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Slider Minimum="1" Maximum="50" SmallChange="1" Width="250" Margin="6"
+    <Slider Minimum="0" Maximum="50" SmallChange="1" Width="250" Margin="6"
             IsSnapToTickEnabled="True" Interval="1" Name="tbSection"></Slider>
 </mps:ModPlusWindow>
 

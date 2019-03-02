@@ -16,18 +16,20 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\ModPlus\Functions\Revit\ostViewIn3D\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;R2019</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\ModPlus\Functions\Revit\ostViewIn3D\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;R2019</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ModPlusAPI">
@@ -74,6 +76,12 @@
     <Compile Include="..\ostViewIn3D_2015\ExternalEventApplication.cs">
       <Link>ExternalEventApplication.cs</Link>
     </Compile>
+    <Compile Include="..\ostViewIn3D_2015\ModPlusConnector.cs">
+      <Link>ModPlusConnector.cs</Link>
+    </Compile>
+    <Compile Include="..\ostViewIn3D_2015\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="..\ostViewIn3D_2015\Scroller.xaml.cs">
       <Link>Scroller.xaml.cs</Link>
       <DependentUpon>Scroller.xaml</DependentUpon>
@@ -81,8 +89,6 @@
     <Compile Include="..\ostViewIn3D_2015\SectionBox.cs">
       <Link>SectionBox.cs</Link>
     </Compile>
-    <Compile Include="Interface.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="..\ostViewIn3D_2015\Resources\Help\ostViewIn3D.png">
@@ -104,5 +110,11 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+"$(ModPlusPostBuild)" "Revit" "$(TargetPath)" "s"
+)</PostBuildEvent>
+  </PropertyGroup>
 </Project>

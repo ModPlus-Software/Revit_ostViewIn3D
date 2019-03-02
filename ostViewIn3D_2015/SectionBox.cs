@@ -20,9 +20,6 @@ namespace ostViewIn3D
                 view3D = currentView as View3D;
             else
             {
-
-                //if (list3D.Count == 0)
-                //    return;
                 if (list3D.Any())
                 {
                     var my3D = list3D.Where(x => x.Name.ToUpper().Contains(userName.ToUpper())).ToList();
@@ -58,7 +55,11 @@ namespace ostViewIn3D
                             view3D = View3D.CreateIsometric(doc, threeD.Id);
                         }
                     }
+#if R2015 || R2016 || R2017 || R2018
                     view3D.ViewName = "3D - " + userName;
+#else
+                    view3D.Name = "3D - " + userName;
+#endif
                     tr.Commit();
                 }
             }
@@ -90,11 +91,10 @@ namespace ostViewIn3D
 
 
         }
-        
+
         private List<Point3D> GetBoundingBoxXYZ(List<Element> listElements, Document doc)
         {
             List<Point3D> listPoints = new List<Point3D>();
-            BoundingBoxXYZ boundingBox2 = new BoundingBoxXYZ();
             XYZ max = new XYZ();
             XYZ min = new XYZ();
             double maxX = -10000000;
@@ -125,8 +125,8 @@ namespace ostViewIn3D
                 if (boundingBox.Min.X < minX) minX = boundingBox.Min.X;
                 if (boundingBox.Min.Y < minY) minY = boundingBox.Min.Y;
                 if (boundingBox.Max.Z < minZ) minZ = boundingBox.Min.Z;
-                max = new XYZ(maxX + 2, maxY + 2, maxZ + 2);
-                min = new XYZ(minX - 2, minY - 2, minZ - 2);
+                max = new XYZ(maxX, maxY, maxZ);
+                min = new XYZ(minX, minY, minZ);
                 if (el.Document.Title != doc.Title)
                 {
                     max = transform.OfPoint(max);

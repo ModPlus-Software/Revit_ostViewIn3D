@@ -18,7 +18,7 @@ namespace ostViewIn3D
 
         public Result Execute(ExternalCommandData commandData, ref string message, Autodesk.Revit.DB.ElementSet elements)
         {
-            Statistic.SendCommandStarting(new Interface());
+            Statistic.SendCommandStarting(new ModPlusConnector());
 
             UIApplication appRevit = commandData.Application;
             if (ScrollerWin != null)
