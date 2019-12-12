@@ -4,20 +4,21 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6B062C4D-E537-42DC-9D71-015071C35F46}</ProjectGuid>
+    <ProjectGuid>{303CFF0D-DE7E-4627-AA53-BC749FD8AABD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ostViewIn3D</RootNamespace>
-    <AssemblyName>ostViewIn3D_2016</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <AssemblyName>ostViewIn3D_2020</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;R2016</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;R2020</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x64</PlatformTarget>
@@ -26,7 +27,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;R2016</DefineConstants>
+    <DefineConstants>TRACE;R2020</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x64</PlatformTarget>
@@ -35,11 +36,38 @@
     <CodeAnalysisRuleSet>$(SolutionDir)\ModPlus.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdWindows, Version=2018.11.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ModPlus.Revit.API.2020.1.0.0\lib\AdWindows.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="ModPlusAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ModPlusAPI.1.3.0\lib\ModPlusAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="ModPlusService.Dto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ModPlusAPI.1.3.0\lib\ModPlusService.Dto.dll</HintPath>
+    </Reference>
+    <Reference Include="ModPlusStyle, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ModPlusStyle.1.3.0\lib\ModPlusStyle.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="RevitAPI, Version=20.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ModPlus.Revit.API.2020.1.0.0\lib\RevitAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitAPIUI, Version=20.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ModPlus.Revit.API.2020.1.0.0\lib\RevitAPIUI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\ostViewIn3D_2015\ExternalCommands.cs">
@@ -63,15 +91,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="..\ostViewIn3D_2015\Resources\Help\ostViewIn3D.png">
+    <Resource Include="..\ostviewin3d_2015\resources\help\ostViewIn3D.png">
       <Link>Resources\Help\ostViewIn3D.png</Link>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="..\ostViewIn3D_2015\Resources\ostViewIn3D_16x16.png">
+    <Resource Include="..\ostviewin3d_2015\resources\ostViewIn3D_16x16.png">
       <Link>Resources\ostViewIn3D_16x16.png</Link>
     </Resource>
-    <Resource Include="..\ostViewIn3D_2015\Resources\ostViewIn3D_32x32.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\ostviewin3d_2015\resources\ostViewIn3D_32x32.png">
       <Link>Resources\ostViewIn3D_32x32.png</Link>
     </Resource>
   </ItemGroup>
@@ -83,23 +113,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ModPlus.Revit.API.2016">
-      <Version>1.0.0</Version>
-	  <ExcludeAssets>runtime</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="ModPlusAPI">
-      <Version>1.3.0</Version>
-	  <ExcludeAssets>runtime</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="ModPlusStyle">
-      <Version>1.3.0</Version>
-	  <ExcludeAssets>runtime</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="StyleCop.Analyzers">
-      <Version>1.1.118</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

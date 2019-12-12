@@ -1,15 +1,13 @@
-﻿using System.Windows;
-using Autodesk.Revit.UI;
-
-namespace ostViewIn3D
+﻿namespace ostViewIn3D
 {
+    using System.Windows;
+    using Autodesk.Revit.UI;
+
     public partial class Scroller
     {
-        private readonly ExternalEvent m_ExEvent;
-        public bool isSectionView  = true;
-        public int offset = 0;
-        private readonly UIApplication appRevit;
         private const string LangItem = "ostViewIn3D";
+        private readonly ExternalEvent m_ExEvent;
+        private readonly UIApplication appRevit;
 
         public Scroller(UIApplication appRevit, ExternalEvent exEvent)
         {
@@ -18,15 +16,20 @@ namespace ostViewIn3D
             m_ExEvent = exEvent;
             this.appRevit = appRevit;
         }
+        
+        public bool IsSectionView { get; set; } = true;
 
+        public int Offset { get; set; } = 0;
+        
         private void TbSection_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (appRevit.ActiveUIDocument == null) return;
+            if (appRevit.ActiveUIDocument == null)
+                return;
             if (appRevit.ActiveUIDocument.Selection.GetElementIds().Count == 0)
                 return;
-            isSectionView = false;
-            offset = (int)tbSection.Value;
-            m_ExEvent.Raise();  //сигнал для обработки события
+            IsSectionView = false;
+            Offset = (int)tbSection.Value;
+            m_ExEvent.Raise();  // сигнал для обработки события
         }
 
         private void Scroller_OnLoaded(object sender, RoutedEventArgs e)

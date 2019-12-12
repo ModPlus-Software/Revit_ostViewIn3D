@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Autodesk.Revit.Attributes;
-using Autodesk.Revit.DB;
-using Autodesk.Revit.Exceptions;
-using Autodesk.Revit.UI;
-using Autodesk.Revit.UI.Selection;
-using ModPlusAPI;
-
-namespace ostViewIn3D
+﻿namespace ostViewIn3D
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using Autodesk.Revit.Attributes;
+    using Autodesk.Revit.DB;
+    using Autodesk.Revit.Exceptions;
+    using Autodesk.Revit.UI;
+    using Autodesk.Revit.UI.Selection;
+    using ModPlusAPI;
+
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
     public class ExternalCommands : IExternalCommand
@@ -16,24 +16,32 @@ namespace ostViewIn3D
         private const string LangItem = "ostViewIn3D";
         public static Scroller ScrollerWin = null;
 
-        public Result Execute(ExternalCommandData commandData, ref string message, Autodesk.Revit.DB.ElementSet elements)
+        /// <inheritdoc/>
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             Statistic.SendCommandStarting(new ModPlusConnector());
 
             UIApplication appRevit = commandData.Application;
             if (ScrollerWin != null)
+            {
                 return Result.Cancelled;
-            
-            if (!SetSelection(appRevit)) return Result.Cancelled;
+            }
+
+            if (!SetSelection(appRevit))
+            {
+                return Result.Cancelled;
+            }
+
             SectionBox sectionBox = new SectionBox();
             sectionBox.SetSectionBox(appRevit,0);
             ExternalEventApplication handler = new ExternalEventApplication();
-            ExternalEvent exEvent = ExternalEvent.Create(handler);                //Создаем событие
+            ExternalEvent exEvent = ExternalEvent.Create(handler);                // Создаем событие
             ScrollerWin = new Scroller(appRevit, exEvent);
             ScrollerWin.Closed += ScrollerWin_Closed;
             ScrollerWin.Show();
             return Result.Succeeded;
         }
+
         private void ScrollerWin_Closed(object sender, System.EventArgs e)
         {
             ScrollerWin = null;
@@ -50,16 +58,24 @@ namespace ostViewIn3D
                 foreach (ElementId id in selectedIds)
                 {
                     var element = doc.GetElement(id);
-                    if(element.Category.Id.IntegerValue != (int)BuiltInCategory.OST_SectionBox)
+                    if (element.Category.Id.IntegerValue != (int)BuiltInCategory.OST_SectionBox)
+                    {
                         selectedExceptSectionBox.Add(element);
+                    }
                 }
-                if(selectedExceptSectionBox.Any())
+
+                if (selectedExceptSectionBox.Any())
+                {
                     return true;
+                }
             }
+
             try
             {
-                var selSet = selection.PickObjects(ObjectType.Element, new SelFilter(), 
-                    Language.GetItem(LangItem, "msg1")).Select(r=>r.ElementId).ToList();
+                var selSet = selection.PickObjects(
+                    ObjectType.Element,
+                    new SelFilter(), 
+                    Language.GetItem(LangItem, "msg1")).Select(r =>r.ElementId).ToList();
                 selection.SetElementIds(selSet);
                 return selSet.Any();
             }
@@ -74,7 +90,11 @@ namespace ostViewIn3D
     {
         public bool AllowElement(Element elem)
         {
-            if (elem.Category.Id.IntegerValue == (int) BuiltInCategory.OST_SectionBox) return false;
+            if (elem.Category.Id.IntegerValue == (int)BuiltInCategory.OST_SectionBox)
+            {
+                return false;
+            }
+
             return true;
         }
 
