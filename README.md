@@ -1,7 +1,7 @@
 # ostViewIn3D
 Cuts the selected elements in the view cube, with the possibility of specifying the size of the view cube
 ### Product ###
-Revit >= 2015
+Revit >= 2017
 ### Plugin card ###
 https://modplus.org/revitplugins/ostviewin3d
 ### This project uses
