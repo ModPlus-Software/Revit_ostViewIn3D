@@ -60,7 +60,7 @@
                             view3D = View3D.CreateIsometric(doc, threeD?.Id);
                         }
                     }
-#if R2015 || R2016 || R2017 || R2018
+#if R2017 || R2018
                     view3D.ViewName = "3D - " + userName;
 #else
                     view3D.Name = "3D - " + userName;

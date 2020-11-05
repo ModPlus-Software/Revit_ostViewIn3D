@@ -19,7 +19,9 @@
         /// <inheritdoc/>
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
+#if !DEBUG
             Statistic.SendCommandStarting(new ModPlusConnector());
+#endif
 
             UIApplication appRevit = commandData.Application;
             if (ScrollerWin != null)
@@ -33,7 +35,7 @@
             }
 
             SectionBox sectionBox = new SectionBox();
-            sectionBox.SetSectionBox(appRevit,0);
+            sectionBox.SetSectionBox(appRevit, 0);
             ExternalEventApplication handler = new ExternalEventApplication();
             ExternalEvent exEvent = ExternalEvent.Create(handler);                // Создаем событие
             ScrollerWin = new Scroller(appRevit, exEvent);
@@ -74,8 +76,8 @@
             {
                 var selSet = selection.PickObjects(
                     ObjectType.Element,
-                    new SelFilter(), 
-                    Language.GetItem(LangItem, "msg1")).Select(r =>r.ElementId).ToList();
+                    new SelFilter(),
+                    Language.GetItem(LangItem, "msg1")).Select(r => r.ElementId).ToList();
                 selection.SetElementIds(selSet);
                 return selSet.Any();
             }
