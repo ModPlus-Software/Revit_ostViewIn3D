@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ostViewIn3D", "ostViewIn3D\ostViewIn3D.csproj", "{8355A9E8-BE41-4C14-A025-5905F87A13B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ostViewIn3D", "ostViewIn3D\ostViewIn3D.csproj", "{8355A9E8-BE41-4C14-A025-5905F87A13B9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED0B089A-6B3A-437E-BF85-750C14232BE0}"
 	ProjectSection(SolutionItems) = preProject
@@ -20,6 +20,7 @@ Global
 		R2019|x64 = R2019|x64
 		R2020|x64 = R2020|x64
 		R2021|x64 = R2021|x64
+		R2022|x64 = R2022|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8355A9E8-BE41-4C14-A025-5905F87A13B9}.Debug|x64.ActiveCfg = Debug|x64
@@ -33,6 +34,8 @@ Global
 		{8355A9E8-BE41-4C14-A025-5905F87A13B9}.R2020|x64.Build.0 = R2020|x64
 		{8355A9E8-BE41-4C14-A025-5905F87A13B9}.R2021|x64.ActiveCfg = R2021|x64
 		{8355A9E8-BE41-4C14-A025-5905F87A13B9}.R2021|x64.Build.0 = R2021|x64
+		{8355A9E8-BE41-4C14-A025-5905F87A13B9}.R2022|x64.ActiveCfg = R2022|x64
+		{8355A9E8-BE41-4C14-A025-5905F87A13B9}.R2022|x64.Build.0 = R2022|x64
 		{00892F8B-BC3E-4DA5-B1B9-FDD2194B1E64}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{00892F8B-BC3E-4DA5-B1B9-FDD2194B1E64}.Debug|x64.Build.0 = Debug|Any CPU
 		{00892F8B-BC3E-4DA5-B1B9-FDD2194B1E64}.R2017|x64.ActiveCfg = Release|Any CPU
@@ -45,6 +48,8 @@ Global
 		{00892F8B-BC3E-4DA5-B1B9-FDD2194B1E64}.R2020|x64.Build.0 = Release|Any CPU
 		{00892F8B-BC3E-4DA5-B1B9-FDD2194B1E64}.R2021|x64.ActiveCfg = Release|Any CPU
 		{00892F8B-BC3E-4DA5-B1B9-FDD2194B1E64}.R2021|x64.Build.0 = Release|Any CPU
+		{00892F8B-BC3E-4DA5-B1B9-FDD2194B1E64}.R2022|x64.ActiveCfg = Release|Any CPU
+		{00892F8B-BC3E-4DA5-B1B9-FDD2194B1E64}.R2022|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

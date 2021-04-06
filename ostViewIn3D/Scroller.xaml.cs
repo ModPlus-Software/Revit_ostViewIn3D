@@ -5,15 +5,14 @@
 
     public partial class Scroller
     {
-        private const string LangItem = "ostViewIn3D";
-        private readonly ExternalEvent m_ExEvent;
+        private readonly ExternalEvent _externalEvent;
         private readonly UIApplication appRevit;
 
         public Scroller(UIApplication appRevit, ExternalEvent exEvent)
         {
             InitializeComponent();
-            Title = ModPlusAPI.Language.GetItem(LangItem, "h1");
-            m_ExEvent = exEvent;
+            Title = ModPlusAPI.Language.GetItem("h1");
+            _externalEvent = exEvent;
             this.appRevit = appRevit;
         }
         
@@ -29,7 +28,7 @@
                 return;
             IsSectionView = false;
             Offset = (int)tbSection.Value;
-            m_ExEvent.Raise();  // сигнал для обработки события
+            _externalEvent.Raise();  // сигнал для обработки события
         }
 
         private void Scroller_OnLoaded(object sender, RoutedEventArgs e)
